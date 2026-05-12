@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omnisonde — Automated Probe Point Analysis for Hardware Engineers</title>
-    <meta name="description" content="Omnisonde is a web-based probe point manager that orchestrates oscilloscopes, logic analyzers, and SCPI instruments to automate circuit board characterization.">
+    <title>Omnisonde — Hardware Observability and Experiment Orchestration</title>
+    <meta name="description" content="Omnisonde is a hardware observability and experiment orchestration platform for embedded systems, reverse engineering, and hardware security research.">
     <link rel="icon" type="image/png" href="assets/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,9 +20,11 @@
                 <span class="brand-name">Omnisonde</span>
             </a>
             <div class="nav-links">
+                <a href="#why">Why it exists</a>
                 <a href="#how">How it works</a>
+                <a href="#use-case">Use case</a>
                 <a href="#features">Features</a>
-                <a href="#screens">Screenshots</a>
+                <a href="#reports">Reports</a>
                 <a href="#examples">Examples</a>
                 <a href="#contact" class="btn">Contact</a>
             </div>
@@ -31,22 +33,72 @@
 
     <header class="hero">
         <div class="container">
-            <span class="hero-eyebrow">Hardware Diagnostics, Orchestrated</span>
-            <h1>Probe every test point.<br><span class="accent">Capture every signal.</span></h1>
-            <p class="lede">Omnisonde turns a photograph of a circuit board into an automated characterization rig — orchestrating oscilloscopes, logic analyzers, power supplies, and motion control through one browser-based console.</p>
+            <span class="hero-eyebrow">Hardware Observability, Orchestrated</span>
+            <h1>Reproducible hardware experiments for <span class="accent">embedded systems, reverse engineering, and security research.</span></h1>
+            <p class="lede">Omnisonde automates captures, correlates instruments, and generates replayable reports from one bench console.</p>
+            <p class="hero-support">Connect instruments, define probes, run synchronized sessions, and archive the result for reliable comparison.</p>
             <div class="hero-cta">
                 <a href="#contact" class="btn btn-primary">Request access</a>
                 <a href="#how" class="btn">See how it works</a>
             </div>
+            <div class="hero-signals">
+                <div class="signal">Synchronized instrumentation</div>
+                <div class="signal">Replayable sessions</div>
+                <div class="signal">Deterministic reporting</div>
+                <div class="signal">Local-first deployment</div>
+            </div>
         </div>
     </header>
+
+    <section id="why">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Why It Exists</div>
+                <h2 class="section-title">Modern hardware workflows are still fragmented</h2>
+                <p class="section-subtitle">Bench work is still split across instrument UIs, screenshots, notes, and one-off scripts.</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-label">Without Omnisonde</div>
+                    <ul class="problem-list">
+                        <li>Disconnected instrument interfaces and capture formats</li>
+                        <li>Manual note taking and screenshot-driven documentation</li>
+                        <li>Inconsistent probing, timing, and power sequencing</li>
+                        <li>No unified timeline across scope, logic, and board context</li>
+                        <li>Difficult experiment replay and weak comparison between runs</li>
+                    </ul>
+                </div>
+                <div class="problem-card solution-card">
+                    <div class="problem-label">With Omnisonde</div>
+                    <p class="solution-copy">One session definition coordinates instruments, capture phases, annotations, and report output.</p>
+                    <div class="solution-tags">
+                        <span>Reproducible</span>
+                        <span>Comparable</span>
+                        <span>Synchronized</span>
+                        <span>Archival</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="how">
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Workflow</div>
-                <h2 class="section-title">From PCB photo to full report in four steps</h2>
-                <p class="section-subtitle">Bring your own bench. Omnisonde drives the instruments you already own — Rigol scopes, Saleae and sigrok logic analyzers, GRBL XYZ tables, and any SCPI-speaking device.</p>
+                <h2 class="section-title">From target board to replayable report</h2>
+                <p class="section-subtitle">Bring your own bench. Omnisonde drives your instruments and preserves the full session context.</p>
+            </div>
+
+            <div class="workflow-diagram" aria-label="Typical Omnisonde workflow">
+                <div class="workflow-node">Target board + instruments</div>
+                <div class="workflow-arrow" aria-hidden="true">→</div>
+                <div class="workflow-node">Probe assignment + session definition</div>
+                <div class="workflow-arrow" aria-hidden="true">→</div>
+                <div class="workflow-node">Synchronized capture timeline</div>
+                <div class="workflow-arrow" aria-hidden="true">→</div>
+                <div class="workflow-node">Analysis, comparison, and reporting</div>
             </div>
 
             <div class="steps">
@@ -63,13 +115,35 @@
                 <div class="step">
                     <div class="step-num">03 / SCAN</div>
                     <div class="step-title">Run the session</div>
-                    <p class="step-body">Hit run. Instruments arm, power cycles, captures save automatically — with retry, hooks, and live status for every point.</p>
+                    <p class="step-body">Hit run. Instruments arm, power cycles, and captures save automatically with retries, hooks, and live status.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">04 / ANALYZE</div>
                     <div class="step-title">Read the report</div>
-                    <p class="step-body">Voltage domains cluster automatically. UART and eMMC buses are decoded. Output exports to Markdown, HTML, or PDF.</p>
+                    <p class="step-body">Voltage domains cluster automatically. UART and eMMC buses are decoded. Export to Markdown, HTML, or PDF.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reports">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Deliverables</div>
+                <h2 class="section-title">Reports make the workflow tangible</h2>
+                <p class="section-subtitle">Reports turn each session into something reviewable, shareable, and repeatable.</p>
+            </div>
+
+            <div class="report-preview">
+                <div class="report-text">
+                    <div class="example-tag">SAMPLE REPORT</div>
+                    <h3 class="report-title">A real scan report, end to end</h3>
+                    <p class="report-body">Auto-generated from a probe session with summary, instrumentation, waveform crops, anomaly callouts, and timeline context.</p>
+                    <a class="btn btn-primary" href="examples/report_preview.png" target="_blank" rel="noreferrer">Open report preview</a>
+                </div>
+                <a class="report-thumb" href="examples/report_preview.png" target="_blank" rel="noreferrer">
+                    <img src="examples/report_preview.png" alt="First page of sample Omnisonde report">
+                </a>
             </div>
         </div>
     </section>
@@ -78,8 +152,8 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Capabilities</div>
-                <h2 class="section-title">Built for real hardware investigation</h2>
-                <p class="section-subtitle">Every component is replaceable. Drop in a new plugin to support a new instrument. Add a hook to script custom power sequencing. The system grows with your bench.</p>
+                <h2 class="section-title">Built for structured hardware investigation</h2>
+                <p class="section-subtitle">Integrations support one workflow: synchronized capture, analysis, and reproducible output.</p>
             </div>
 
             <div class="features">
@@ -96,7 +170,7 @@
                 <div class="feature">
                     <div class="feature-tag">PROTOCOL DETECTION</div>
                     <div class="feature-title">Bus discovery</div>
-                    <p class="feature-body">UART baud detection with ASCII preview, eMMC bus identification, signal classification (clock / data / PWM / rail) — straight from raw oscilloscope binaries.</p>
+                    <p class="feature-body">UART baud detection, eMMC identification, and signal classification from raw oscilloscope binaries.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">MOTION CONTROL</div>
@@ -111,8 +185,27 @@
                 <div class="feature">
                     <div class="feature-tag">DELIVERABLES</div>
                     <div class="feature-title">Reports out of the box</div>
-                    <p class="feature-body">Generate Markdown, HTML, or PDF reports with zoomed probe-point crops, anomaly summaries, and PulseView-compatible session exports.</p>
+                    <p class="feature-body">Generate Markdown, HTML, or PDF reports with crops, anomaly summaries, settings, and PulseView-compatible exports.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="audience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Audience</div>
+                <h2 class="section-title">Designed for teams that need repeatable bench work</h2>
+                <p class="section-subtitle">For teams that care about rigor, not just capture volume.</p>
+            </div>
+
+            <div class="audience-grid">
+                <div class="audience-card">Embedded engineers</div>
+                <div class="audience-card">Hardware reverse engineers</div>
+                <div class="audience-card">Validation teams</div>
+                <div class="audience-card">Security researchers</div>
+                <div class="audience-card">Firmware developers</div>
+                <div class="audience-card">Lab environments</div>
             </div>
         </div>
     </section>
@@ -153,6 +246,34 @@
                         <div class="label">REPORTS</div>
                         <div class="desc">Executive summary, per-point detail, anomaly callouts — exportable to PDF.</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="use-case">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Concrete Use Case</div>
+                <h2 class="section-title">Compare firmware revisions with the same experiment definition</h2>
+                <p class="section-subtitle">Spot behavioral drift between revisions without rebuilding the workflow.</p>
+            </div>
+
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="problem-label">Run 1</div>
+                    <h3>Capture revision A</h3>
+                    <p>Run the same scope, logic analyzer, and power sequence against the same probe map.</p>
+                </div>
+                <div class="use-case-card">
+                    <div class="problem-label">Run 2</div>
+                    <h3>Capture revision B</h3>
+                    <p>Replay the workflow with a new firmware build or hardware spin.</p>
+                </div>
+                <div class="use-case-card highlight">
+                    <div class="problem-label">Outcome</div>
+                    <h3>Review the delta</h3>
+                    <p>Spot missing SPI transactions, boot timing shifts, CAN drift, or altered UART output.</p>
                 </div>
             </div>
         </div>
@@ -279,16 +400,23 @@ class LogHook(ScanHook):
                 </div>
             </div>
 
-            <div class="report-preview">
-                <div class="report-text">
-                    <div class="example-tag">SAMPLE REPORT</div>
-                    <h3 class="report-title">A real scan report, end to end</h3>
-                    <p class="report-body">Six pages auto-generated from a probe session: executive summary, instrumentation list, per-point waveform crops, anomaly callouts, and conclusion. Generated by the built-in report pipeline (Markdown → pandoc → PDF).</p>
-                    <a class="btn btn-primary" href="examples/example_report.pdf" download>Download example PDF (5.2 MB)</a>
-                </div>
-                <a class="report-thumb" href="examples/example_report.pdf" download>
-                    <img src="examples/report_preview.png" alt="First page of sample Omnisonde report">
-                </a>
+        </div>
+    </section>
+
+    <section id="future">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Future Direction</div>
+                <h2 class="section-title">Becoming a platform for coordinated hardware experiments</h2>
+                <p class="section-subtitle">Extending the same workflow into more automation, better comparison, and stronger team collaboration.</p>
+            </div>
+
+            <div class="future-grid">
+                <div class="future-card">Automated probing and deeper motion control integration</div>
+                <div class="future-card">Regression analysis across saved experiment runs</div>
+                <div class="future-card">Fault injection and power event orchestration</div>
+                <div class="future-card">More synchronized instrumentation on one shared timeline</div>
+                <div class="future-card">Collaborative workflows for lab teams and review cycles</div>
             </div>
         </div>
     </section>
@@ -302,7 +430,7 @@ class LogHook(ScanHook):
     </section>
 
     <footer>
-        © Omnisonde — Hardware diagnostics, orchestrated.
+        © Omnisonde — Hardware observability, orchestrated.
     </footer>
 
     <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
