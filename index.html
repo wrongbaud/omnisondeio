@@ -34,9 +34,9 @@
     <header class="hero">
         <div class="container">
             <span class="hero-eyebrow">Hardware Observability, Orchestrated</span>
-            <h1>Reproducible hardware experiments for <span class="accent">embedded systems, reverse engineering, and security research.</span></h1>
-            <p class="lede">Omnisonde automates captures, correlates instruments, and generates replayable reports from one bench console.</p>
-            <p class="hero-support">Connect instruments, define probes, run synchronized sessions, and archive the result for reliable comparison.</p>
+            <h1>Reproducible <span class="accent">hardware experiments.</span></h1>
+            <p class="lede">Omnisonde automates captures, correlates instruments, and generates replayable reports.</p>
+            <p class="hero-support">One bench console for synchronized sessions and reliable comparison.</p>
             <div class="hero-cta">
                 <a href="#contact" class="btn btn-primary">Request access</a>
                 <a href="#how" class="btn">See how it works</a>
@@ -54,7 +54,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Why It Exists</div>
-                <h2 class="section-title">Modern hardware workflows are still fragmented</h2>
+                <h2 class="section-title">Hardware workflows are fragmented</h2>
                 <p class="section-subtitle">Bench work is still split across instrument UIs, screenshots, notes, and one-off scripts.</p>
             </div>
 
@@ -88,7 +88,7 @@
             <div class="section-header">
                 <div class="section-eyebrow">Workflow</div>
                 <h2 class="section-title">From target board to replayable report</h2>
-                <p class="section-subtitle">Bring your own bench. Omnisonde drives your instruments and preserves the full session context.</p>
+                <p class="section-subtitle">Drive your instruments and preserve the full session context.</p>
             </div>
 
             <div class="workflow-diagram" aria-label="Typical Omnisonde workflow">
@@ -105,12 +105,12 @@
                 <div class="step">
                     <div class="step-num">01 / UPLOAD</div>
                     <div class="step-title">Image the board</div>
-                    <p class="step-body">Snap a photo of the PCB and drop it into the project. Resolution-independent coordinates work on any image.</p>
+                    <p class="step-body">Drop in a board photo and start from image-based coordinates.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">02 / MARK</div>
                     <div class="step-title">Place probe points</div>
-                    <p class="step-body">Click each test pad, IC pin, or via. Annotate signal names, expected voltages, and per-point trigger settings.</p>
+                    <p class="step-body">Mark pads, pins, or vias and attach signal metadata.</p>
                 </div>
                 <div class="step">
                     <div class="step-num">03 / SCAN</div>
@@ -120,7 +120,7 @@
                 <div class="step">
                     <div class="step-num">04 / ANALYZE</div>
                     <div class="step-title">Read the report</div>
-                    <p class="step-body">Voltage domains cluster automatically. UART and eMMC buses are decoded. Export to Markdown, HTML, or PDF.</p>
+                    <p class="step-body">Cluster rails, decode buses, and export the session.</p>
                 </div>
             </div>
         </div>
@@ -130,15 +130,15 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Deliverables</div>
-                <h2 class="section-title">Reports make the workflow tangible</h2>
-                <p class="section-subtitle">Reports turn each session into something reviewable, shareable, and repeatable.</p>
+                <h2 class="section-title">Reports make it tangible</h2>
+                <p class="section-subtitle">Reviewable, shareable, repeatable.</p>
             </div>
 
             <div class="report-preview">
                 <div class="report-text">
                     <div class="example-tag">SAMPLE REPORT</div>
                     <h3 class="report-title">A real scan report, end to end</h3>
-                    <p class="report-body">Auto-generated from a probe session with summary, instrumentation, waveform crops, anomaly callouts, and timeline context.</p>
+                    <p class="report-body">Auto-generated with summary, instrumentation, crops, anomalies, and timeline context.</p>
                     <a class="btn btn-primary" href="examples/report_preview.png" target="_blank" rel="noreferrer">Open report preview</a>
                 </div>
                 <a class="report-thumb" href="examples/report_preview.png" target="_blank" rel="noreferrer">
@@ -152,20 +152,20 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Capabilities</div>
-                <h2 class="section-title">Built for structured hardware investigation</h2>
-                <p class="section-subtitle">Integrations support one workflow: synchronized capture, analysis, and reproducible output.</p>
+                <h2 class="section-title">Built for real investigation</h2>
+                <p class="section-subtitle">Synchronized capture, analysis, and reproducible output.</p>
             </div>
 
             <div class="features">
                 <div class="feature">
                     <div class="feature-tag">INSTRUMENTATION</div>
                     <div class="feature-title">Multi-vendor capture</div>
-                    <p class="feature-body">PyVISA-driven oscilloscopes, Saleae Logic, sigrok-cli logic analyzers, multimeters, and any SCPI instrument — composable, all at once.</p>
+                    <p class="feature-body">Scopes, logic analyzers, multimeters, and SCPI instruments in one session.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">DOMAIN MAPPING</div>
                     <div class="feature-title">Voltage rail clustering</div>
-                    <p class="feature-body">Per-point DC readings overlay the PCB image and auto-cluster into standard rails — GND, 1.0V, 1.8V, 3.3V, 5V, 12V — with anomaly highlighting.</p>
+                    <p class="feature-body">Overlay DC readings on the board and cluster them into common rails.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">PROTOCOL DETECTION</div>
@@ -175,17 +175,17 @@
                 <div class="feature">
                     <div class="feature-tag">MOTION CONTROL</div>
                     <div class="feature-title">GRBL XYZ jogging</div>
-                    <p class="feature-body">Optional GRBL motion integration with 3-point affine calibration mapping image coordinates to physical millimeters. Jog the probe from the browser; full autonomous probe sequencing is on the roadmap.</p>
+                    <p class="feature-body">Map image coordinates to motion control and jog the probe from the browser.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">EXTENSIBILITY</div>
                     <div class="feature-title">Plugins &amp; hooks</div>
-                    <p class="feature-body">Add a Python file to the plugins directory and your new instrument is registered at runtime. Hooks let you inject custom logic at any scan phase.</p>
+                    <p class="feature-body">Add instruments or scan logic with simple Python extensions.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">DELIVERABLES</div>
                     <div class="feature-title">Reports out of the box</div>
-                    <p class="feature-body">Generate Markdown, HTML, or PDF reports with crops, anomaly summaries, settings, and PulseView-compatible exports.</p>
+                    <p class="feature-body">Generate Markdown, HTML, or PDF reports with crops, summaries, and exports.</p>
                 </div>
             </div>
         </div>
@@ -195,7 +195,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Audience</div>
-                <h2 class="section-title">Designed for teams that need repeatable bench work</h2>
+                <h2 class="section-title">Built for repeatable bench work</h2>
                 <p class="section-subtitle">For teams that care about rigor, not just capture volume.</p>
             </div>
 
@@ -223,28 +223,28 @@
                     <img src="assets/board.png" alt="Board view with probe points">
                     <div class="shot-caption">
                         <div class="label">BOARD VIEW</div>
-                        <div class="desc">Click to place probe points. Voltage overlays appear automatically after a scan.</div>
+                        <div class="desc">Place probe points and review overlays after each scan.</div>
                     </div>
                 </div>
                 <div class="shot">
                     <img src="assets/scan.png" alt="Scan configuration">
                     <div class="shot-caption">
                         <div class="label">SCAN MODE</div>
-                        <div class="desc">Select plugins, hooks, and timing. Run sessions with live point-by-point status.</div>
+                        <div class="desc">Configure plugins, hooks, timing, and live session status.</div>
                     </div>
                 </div>
                 <div class="shot">
                     <img src="assets/analyze.png" alt="Analysis view">
                     <div class="shot-caption">
                         <div class="label">ANALYZE</div>
-                        <div class="desc">Browse captures by point. Re-run protocol detection or pull individual waveforms.</div>
+                        <div class="desc">Browse captures, waveforms, and protocol analysis by point.</div>
                     </div>
                 </div>
                 <div class="shot">
                     <img src="assets/reports.png" alt="Generated report">
                     <div class="shot-caption">
                         <div class="label">REPORTS</div>
-                        <div class="desc">Executive summary, per-point detail, anomaly callouts — exportable to PDF.</div>
+                        <div class="desc">Summaries, per-point detail, and exportable findings.</div>
                     </div>
                 </div>
             </div>
@@ -255,20 +255,20 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Concrete Use Case</div>
-                <h2 class="section-title">Compare firmware revisions with the same experiment definition</h2>
-                <p class="section-subtitle">Spot behavioral drift between revisions without rebuilding the workflow.</p>
+                <h2 class="section-title">Compare firmware revisions</h2>
+                <p class="section-subtitle">Compare revisions without rebuilding the workflow.</p>
             </div>
 
             <div class="use-case-grid">
                 <div class="use-case-card">
                     <div class="problem-label">Run 1</div>
                     <h3>Capture revision A</h3>
-                    <p>Run the same scope, logic analyzer, and power sequence against the same probe map.</p>
+                    <p>Run the same instruments against the same probe map.</p>
                 </div>
                 <div class="use-case-card">
                     <div class="problem-label">Run 2</div>
                     <h3>Capture revision B</h3>
-                    <p>Replay the workflow with a new firmware build or hardware spin.</p>
+                    <p>Replay the workflow with a new build or hardware spin.</p>
                 </div>
                 <div class="use-case-card highlight">
                     <div class="problem-label">Outcome</div>
@@ -283,8 +283,8 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Examples</div>
-                <h2 class="section-title">See what extension looks like</h2>
-                <p class="section-subtitle">Plugins and hooks are auto-discovered Python files. Drop one into the right directory and it's registered at runtime — no manifests, no plumbing.</p>
+                <h2 class="section-title">See the extension model</h2>
+                <p class="section-subtitle">Plugins and hooks are simple, auto-discovered Python files.</p>
             </div>
 
             <div class="example-grid">
@@ -407,8 +407,8 @@ class LogHook(ScanHook):
         <div class="container">
             <div class="section-header">
                 <div class="section-eyebrow">Future Direction</div>
-                <h2 class="section-title">Becoming a platform for coordinated hardware experiments</h2>
-                <p class="section-subtitle">Extending the same workflow into more automation, better comparison, and stronger team collaboration.</p>
+                <h2 class="section-title">Toward a coordinated lab platform</h2>
+                <p class="section-subtitle">More automation, better comparison, stronger collaboration.</p>
             </div>
 
             <div class="future-grid">
