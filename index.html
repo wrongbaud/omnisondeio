@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omnisonde — Automated Probe Point Analysis for Hardware Engineers</title>
+    <meta name="description" content="Omnisonde is a web-based probe point manager that orchestrates oscilloscopes, logic analyzers, and SCPI instruments to automate circuit board characterization.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="brand">
+                <img src="assets/logo.png" alt="Omnisonde">
+                <span class="brand-name">Omnisonde</span>
+            </a>
+            <div class="nav-links">
+                <a href="#how">How it works</a>
+                <a href="#features">Features</a>
+                <a href="#screens">Screenshots</a>
+                <a href="#examples">Examples</a>
+                <a href="#contact" class="btn">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <span class="hero-eyebrow">Hardware Diagnostics, Orchestrated</span>
+            <h1>Probe every test point.<br><span class="accent">Capture every signal.</span></h1>
+            <p class="lede">Omnisonde turns a photograph of a circuit board into an automated characterization rig — orchestrating oscilloscopes, logic analyzers, power supplies, and motion control through one browser-based console.</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Request access</a>
+                <a href="#how" class="btn">See how it works</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="how">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Workflow</div>
+                <h2 class="section-title">From PCB photo to full report in four steps</h2>
+                <p class="section-subtitle">Bring your own bench. Omnisonde drives the instruments you already own — Rigol scopes, Saleae and sigrok logic analyzers, GRBL XYZ tables, and any SCPI-speaking device.</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01 / UPLOAD</div>
+                    <div class="step-title">Image the board</div>
+                    <p class="step-body">Snap a photo of the PCB and drop it into the project. Resolution-independent coordinates work on any image.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">02 / MARK</div>
+                    <div class="step-title">Place probe points</div>
+                    <p class="step-body">Click each test pad, IC pin, or via. Annotate signal names, expected voltages, and per-point trigger settings.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">03 / SCAN</div>
+                    <div class="step-title">Run the session</div>
+                    <p class="step-body">Hit run. Instruments arm, power cycles, captures save automatically — with retry, hooks, and live status for every point.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">04 / ANALYZE</div>
+                    <div class="step-title">Read the report</div>
+                    <p class="step-body">Voltage domains cluster automatically. UART and eMMC buses are decoded. Output exports to Markdown, HTML, or PDF.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Capabilities</div>
+                <h2 class="section-title">Built for real hardware investigation</h2>
+                <p class="section-subtitle">Every component is replaceable. Drop in a new plugin to support a new instrument. Add a hook to script custom power sequencing. The system grows with your bench.</p>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-tag">INSTRUMENTATION</div>
+                    <div class="feature-title">Multi-vendor capture</div>
+                    <p class="feature-body">PyVISA-driven oscilloscopes, Saleae Logic, sigrok-cli logic analyzers, multimeters, and any SCPI instrument — composable, all at once.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">DOMAIN MAPPING</div>
+                    <div class="feature-title">Voltage rail clustering</div>
+                    <p class="feature-body">Per-point DC readings overlay the PCB image and auto-cluster into standard rails — GND, 1.0V, 1.8V, 3.3V, 5V, 12V — with anomaly highlighting.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">PROTOCOL DETECTION</div>
+                    <div class="feature-title">Bus discovery</div>
+                    <p class="feature-body">UART baud detection with ASCII preview, eMMC bus identification, signal classification (clock / data / PWM / rail) — straight from raw oscilloscope binaries.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">MOTION CONTROL</div>
+                    <div class="feature-title">GRBL XYZ jogging</div>
+                    <p class="feature-body">Optional GRBL motion integration with 3-point affine calibration mapping image coordinates to physical millimeters. Jog the probe from the browser; full autonomous probe sequencing is on the roadmap.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">EXTENSIBILITY</div>
+                    <div class="feature-title">Plugins &amp; hooks</div>
+                    <p class="feature-body">Add a Python file to the plugins directory and your new instrument is registered at runtime. Hooks let you inject custom logic at any scan phase.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">DELIVERABLES</div>
+                    <div class="feature-title">Reports out of the box</div>
+                    <p class="feature-body">Generate Markdown, HTML, or PDF reports with zoomed probe-point crops, anomaly summaries, and PulseView-compatible session exports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screens">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Interface</div>
+                <h2 class="section-title">Built for the bench</h2>
+                <p class="section-subtitle">A single dark console with sidebar navigation. No build steps, no cloud dependency — runs locally next to your instruments.</p>
+            </div>
+
+            <div class="shots">
+                <div class="shot">
+                    <img src="assets/board.png" alt="Board view with probe points">
+                    <div class="shot-caption">
+                        <div class="label">BOARD VIEW</div>
+                        <div class="desc">Click to place probe points. Voltage overlays appear automatically after a scan.</div>
+                    </div>
+                </div>
+                <div class="shot">
+                    <img src="assets/scan.png" alt="Scan configuration">
+                    <div class="shot-caption">
+                        <div class="label">SCAN MODE</div>
+                        <div class="desc">Select plugins, hooks, and timing. Run sessions with live point-by-point status.</div>
+                    </div>
+                </div>
+                <div class="shot">
+                    <img src="assets/analyze.png" alt="Analysis view">
+                    <div class="shot-caption">
+                        <div class="label">ANALYZE</div>
+                        <div class="desc">Browse captures by point. Re-run protocol detection or pull individual waveforms.</div>
+                    </div>
+                </div>
+                <div class="shot">
+                    <img src="assets/reports.png" alt="Generated report">
+                    <div class="shot-caption">
+                        <div class="label">REPORTS</div>
+                        <div class="desc">Executive summary, per-point detail, anomaly callouts — exportable to PDF.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="examples">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Examples</div>
+                <h2 class="section-title">See what extension looks like</h2>
+                <p class="section-subtitle">Plugins and hooks are auto-discovered Python files. Drop one into the right directory and it's registered at runtime — no manifests, no plumbing.</p>
+            </div>
+
+            <div class="example-grid">
+                <div class="example">
+                    <div class="example-head">
+                        <div>
+                            <div class="example-tag">PLUGIN ABC</div>
+                            <div class="example-title">plugins/base.py</div>
+                            <div class="example-sub">The 55-line contract every instrument plugin implements.</div>
+                        </div>
+                        <a class="example-dl" href="examples/plugin_base.py" download>Download .py</a>
+                    </div>
+<pre><code class="language-python">from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+
+
+@dataclass
+class PluginResult:
+    plugin_name: str
+    screenshot_path: str | None = None
+    waveform_path: str | None = None
+    extra_files: dict[str, str] = field(default_factory=dict)
+    measurements: dict[str, float | None] = field(default_factory=dict)
+
+
+@dataclass
+class PluginError:
+    plugin_name: str
+    phase: str  # 'prepare', 'capture', 'save'
+    error_type: str  # 'timeout', 'connection', 'instrument', 'unknown'
+    message: str
+    recoverable: bool = True
+
+
+class ScanPlugin(ABC):
+    name: str = ""
+    display_name: str = ""
+    requires_power_supply: bool = True
+
+    @abstractmethod
+    def __init__(self, config: dict) -> None:
+        """Receive plugin's config section from config.json instruments.&lt;name&gt;."""
+        ...
+
+    @abstractmethod
+    def prepare(self, point: dict, output_dir: str) -> None:
+        """Before power-on: arm trigger, configure capture, etc."""
+        ...
+
+    @abstractmethod
+    def capture(self, point: dict, output_dir: str) -> None:
+        """After power-on + timeout: stop acquisition, wait for capture, etc."""
+        ...
+
+    @abstractmethod
+    def save(self, point: dict, output_dir: str) -> PluginResult:
+        """Export data to files in output_dir. Return paths."""
+        ...
+
+    def reconnect(self) -> None:
+        """Attempt to re-establish instrument connection. Override if applicable."""
+        pass
+
+    @abstractmethod
+    def close(self) -> None:
+        """Release instrument resources at session end."""
+        ...
+</code></pre>
+                </div>
+
+                <div class="example">
+                    <div class="example-head">
+                        <div>
+                            <div class="example-tag">HOOK EXAMPLE</div>
+                            <div class="example-title">hooks/example_log.py</div>
+                            <div class="example-sub">Lifecycle hook that logs each probed point before and after capture.</div>
+                        </div>
+                        <a class="example-dl" href="examples/example_log_hook.py" download>Download .py</a>
+                    </div>
+<pre><code class="language-python">"""
+Example hook that logs point information to a file.
+Demonstrates the ScanHook interface with minimal complexity.
+"""
+import os
+from datetime import datetime
+
+from hooks.base import ScanHook, HookResult
+
+
+class LogHook(ScanHook):
+    """Writes a log entry for each probed point."""
+    name = "log"
+    display_name = "Log to File"
+
+    def __init__(self, config: dict) -> None:
+        self.log_file = config.get("log_file", "scan_hook_log.txt")
+
+    def before_power_on(self, point: dict, output_dir: str) -> HookResult | None:
+        path = os.path.join(output_dir, self.log_file)
+        with open(path, "a") as f:
+            ts = datetime.now().isoformat()
+            f.write(f"[{ts}] BEFORE_POWER_ON point={point['name']} "
+                    f"x={point.get('x', '?')} y={point.get('y', '?')}\n")
+        return HookResult(hook_name=self.name, success=True)
+
+    def after_capture(self, point: dict, output_dir: str) -> HookResult | None:
+        path = os.path.join(output_dir, self.log_file)
+        with open(path, "a") as f:
+            ts = datetime.now().isoformat()
+            f.write(f"[{ts}] AFTER_CAPTURE  point={point['name']}\n")
+        return HookResult(hook_name=self.name, success=True)
+</code></pre>
+                </div>
+            </div>
+
+            <div class="report-preview">
+                <div class="report-text">
+                    <div class="example-tag">SAMPLE REPORT</div>
+                    <h3 class="report-title">A real scan report, end to end</h3>
+                    <p class="report-body">Six pages auto-generated from a probe session: executive summary, instrumentation list, per-point waveform crops, anomaly callouts, and conclusion. Generated by the built-in report pipeline (Markdown → pandoc → PDF).</p>
+                    <a class="btn btn-primary" href="examples/example_report.pdf" download>Download example PDF (5.2 MB)</a>
+                </div>
+                <a class="report-thumb" href="examples/example_report.pdf" download>
+                    <img src="examples/report_preview.png" alt="First page of sample Omnisonde report">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Interested in deploying Omnisonde?</h2>
+            <p>Get in touch to discuss licensing, on-site deployment, or custom instrument integrations for your hardware program.</p>
+            <a class="email-link" href="mailto:contact@omnisonde.com?subject=Omnisonde%20inquiry">contact@omnisonde.com</a>
+        </div>
+    </section>
+
+    <footer>
+        © Omnisonde — Hardware diagnostics, orchestrated.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/python.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>
