@@ -120,7 +120,7 @@
                 <div class="step">
                     <div class="step-num">04 / ANALYZE</div>
                     <div class="step-title">Read the report</div>
-                    <p class="step-body">Cluster rails, decode buses, and export the session.</p>
+                    <p class="step-body">Cluster rails, decode buses, score points pass/fail, and diff against a baseline.</p>
                 </div>
             </div>
         </div>
@@ -163,29 +163,59 @@
                     <p class="feature-body">Scopes, logic analyzers, multimeters, and SCPI instruments in one session.</p>
                 </div>
                 <div class="feature">
+                    <div class="feature-tag">AUTO-DISCOVERY</div>
+                    <div class="feature-title">Instrument auto-discovery</div>
+                    <p class="feature-body">Scan the VISA bus, identify instruments by <code>*IDN?</code>, and assign them with one click.</p>
+                </div>
+                <div class="feature">
                     <div class="feature-tag">DOMAIN MAPPING</div>
                     <div class="feature-title">Voltage rail clustering</div>
-                    <p class="feature-body">Overlay DC readings on the board and cluster them into common rails.</p>
+                    <p class="feature-body">Overlay DC readings on the board and cluster them into common rails with a heatmap legend.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">PROTOCOL DETECTION</div>
                     <div class="feature-title">Bus discovery</div>
-                    <p class="feature-body">UART baud detection, eMMC identification, and signal classification from raw oscilloscope binaries.</p>
+                    <p class="feature-body">UART baud detection with decoded text, eMMC identification, and signal classification from raw oscilloscope binaries.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">VALIDATION</div>
+                    <div class="feature-title">Pass / fail criteria</div>
+                    <p class="feature-body">Set per-point expected voltage ranges and protocols; every point scores PASS, FAIL, or WARN automatically.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">REGRESSION</div>
+                    <div class="feature-title">Golden baseline comparison</div>
+                    <p class="feature-body">Mark a golden reference scan and diff later runs for voltage deltas and protocol changes, with per-point timelines.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">RELIABILITY</div>
+                    <div class="feature-title">Resilient scan sessions</div>
+                    <p class="feature-body">Phase-level retry, auto-reconnect, connection validation, and structured errors keep long scans alive — retry or skip any point mid-run.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">WORKFLOW</div>
+                    <div class="feature-title">Search, filter &amp; templates</div>
+                    <p class="feature-body">Filter points by signal, voltage, protocol, or pass/fail status, and save plugin, hook, and timeout presets as reusable scan templates.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">MOTION CONTROL</div>
                     <div class="feature-title">GRBL XYZ jogging</div>
-                    <p class="feature-body">Map image coordinates to motion control and jog the probe from the browser.</p>
+                    <p class="feature-body">Map image coordinates to motion control with 3-point affine calibration and jog the probe from the browser.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">EXTENSIBILITY</div>
-                    <div class="feature-title">Plugins &amp; hooks</div>
-                    <p class="feature-body">Add instruments or scan logic with simple Python extensions.</p>
+                    <div class="feature-title">Plugins, hooks &amp; analyzers</div>
+                    <p class="feature-body">Add instruments, lifecycle hooks, or post-scan analysis with simple auto-discovered Python files.</p>
                 </div>
                 <div class="feature">
                     <div class="feature-tag">DELIVERABLES</div>
                     <div class="feature-title">Reports out of the box</div>
-                    <p class="feature-body">Generate Markdown, HTML, or PDF reports with crops, summaries, and exports.</p>
+                    <p class="feature-body">Generate Markdown, HTML, or PDF reports with crops, decoded logic, summaries, and anomaly sections.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">PORTABILITY</div>
+                    <div class="feature-title">Local-first &amp; portable</div>
+                    <p class="feature-body">Runs locally beside your bench. Export and import full projects as ZIP, plus SVG overlays and PulseView <code>.sr</code> captures.</p>
                 </div>
             </div>
         </div>
@@ -215,7 +245,7 @@
             <div class="section-header">
                 <div class="section-eyebrow">Interface</div>
                 <h2 class="section-title">Built for the bench</h2>
-                <p class="section-subtitle">A single dark console with sidebar navigation. No build steps, no cloud dependency — runs locally next to your instruments.</p>
+                <p class="section-subtitle">A single console — light or dark — with sidebar navigation. No build steps, no cloud dependency. Runs locally next to your instruments, with a tablet-responsive layout for the bench.</p>
             </div>
 
             <div class="shots">
@@ -263,17 +293,17 @@
                 <div class="use-case-card">
                     <div class="problem-label">Run 1</div>
                     <h3>Capture revision A</h3>
-                    <p>Run the same instruments against the same probe map.</p>
+                    <p>Run the same instruments against the same probe map, then mark it as the golden baseline.</p>
                 </div>
                 <div class="use-case-card">
                     <div class="problem-label">Run 2</div>
                     <h3>Capture revision B</h3>
-                    <p>Replay the workflow with a new build or hardware spin.</p>
+                    <p>Replay the workflow with a new build or hardware spin — no reconfiguration needed.</p>
                 </div>
                 <div class="use-case-card highlight">
                     <div class="problem-label">Outcome</div>
                     <h3>Review the delta</h3>
-                    <p>Spot missing SPI transactions, boot timing shifts, CAN drift, or altered UART output.</p>
+                    <p>Omnisonde diffs against the baseline automatically — voltage deltas, protocol changes, and altered UART output surface as anomaly counts.</p>
                 </div>
             </div>
         </div>
@@ -413,7 +443,7 @@ class LogHook(ScanHook):
 
             <div class="future-grid">
                 <div class="future-card">Automated probing and deeper motion control integration</div>
-                <div class="future-card">Regression analysis across saved experiment runs</div>
+                <div class="future-card">More protocol decoders — SPI, I²C, and CAN bus identification</div>
                 <div class="future-card">Fault injection and power event orchestration</div>
                 <div class="future-card">More synchronized instrumentation on one shared timeline</div>
                 <div class="future-card">Collaborative workflows for lab teams and review cycles</div>

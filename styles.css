@@ -441,6 +441,17 @@ section {
     font-size: 0.95rem;
 }
 
+/* Inline code (outside highlighted blocks) */
+.feature-body code {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--brass);
+    background: var(--bg-plate);
+    border: 1px solid var(--border-soft);
+    border-radius: 3px;
+    padding: 1px 5px;
+}
+
 /* ---------- Audience ---------- */
 .audience-grid {
     display: grid;
