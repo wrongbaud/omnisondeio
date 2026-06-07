@@ -1,0 +1,55 @@
+name: Build documentation report
+
+# Rebuilds the self-contained HTML documentation report
+# (docs/omnisonde-documentation.html) from its Markdown source and the doc
+# screenshots, so the downloadable report never drifts from its sources and
+# nobody has to hand-edit the generated HTML.
+#
+# To refresh the content, update docs/omnisonde-documentation.md and
+# docs/screenshots/* from the app's `uv run python -m docs.generator.build_docs`
+# output and push — this workflow regenerates the HTML automatically.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - docs/omnisonde-documentation.md
+      - docs/screenshots/**
+      - scripts/build_doc_report.py
+      - .github/workflows/build-doc-report.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-doc-report
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: pip install markdown
+
+      - name: Build HTML documentation report
+        run: python scripts/build_doc_report.py
+
+      - name: Commit regenerated report if changed
+        run: |
+          if git diff --quiet -- docs/omnisonde-documentation.html; then
+            echo "No changes to docs/omnisonde-documentation.html."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/omnisonde-documentation.html
+          git commit -m "Rebuild documentation report [skip ci]"
+          git push

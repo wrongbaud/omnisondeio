@@ -28,14 +28,25 @@ into `assets/`. The landing grid currently uses `board.png` (02_board_view),
 
 ## Updating the documentation report
 The downloadable docs are built from the app's auto-generated
-`docs/generated/DOCUMENTATION.md`:
+`docs/generated/DOCUMENTATION.md`. The HTML report is regenerated automatically
+by CI — you only update the **sources**:
 
-1. In the app repo, regenerate the docs:
-   `uv run python -m docs.generator.build_docs --html`
-2. Copy `docs/generated/DOCUMENTATION.md` here to `docs/omnisonde-documentation.md`.
-3. Rebuild the themed, self-contained `docs/omnisonde-documentation.html` — render
-   the Markdown with the landing-page theme and screenshots embedded as base64 so
-   it stays a single downloadable file.
+1. In the app repo, regenerate the docs and screenshots:
+   `uv run python -m docs.generator.build_docs` (and
+   `capture_screenshots.py` if the UI changed).
+2. Copy the sources into this repo:
+   - `docs/generated/DOCUMENTATION.md` → `docs/omnisonde-documentation.md`
+   - `docs/screenshots/*.png` → `docs/screenshots/`
+3. Push. The `Build documentation report` workflow
+   (`.github/workflows/build-doc-report.yml`) rebuilds the self-contained
+   `docs/omnisonde-documentation.html` (screenshots embedded as base64, themed to
+   match the landing page) and commits it.
+
+To rebuild locally instead:
+```bash
+pip install markdown
+python scripts/build_doc_report.py
+```
 
 ## Contact email
 The contact address is set in two places in `index.html`: the `mailto:` href and
