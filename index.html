@@ -26,6 +26,7 @@
                 <a href="#features">Features</a>
                 <a href="#reports">Reports</a>
                 <a href="#examples">Examples</a>
+                <a href="#docs">Docs</a>
                 <a href="#contact" class="btn">Contact</a>
             </div>
         </div>
@@ -178,6 +179,21 @@
                     <p class="feature-body">UART baud detection with decoded text, eMMC identification, and signal classification from raw oscilloscope binaries.</p>
                 </div>
                 <div class="feature">
+                    <div class="feature-tag">PROTOCOL DECODING</div>
+                    <div class="feature-title">Full transaction decode</div>
+                    <p class="feature-body">Run libsigrokdecode over captures for I²C, SPI, CAN, UART, 1-Wire, and 50+ more — configured in an in-app decoder editor.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">SCHEMATIC</div>
+                    <div class="feature-title">Netlist cross-reference</div>
+                    <p class="feature-body">Import a KiCad or CSV netlist, auto-map nets to probe points, and carry net + connected pins into the point list and reports.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-tag">DATASHEET</div>
+                    <div class="feature-title">Interactive board datasheet</div>
+                    <p class="feature-body">Generate a self-contained HTML datasheet with clickable markers and searchable per-point cards — net, voltage, pass/fail, and decoded protocols.</p>
+                </div>
+                <div class="feature">
                     <div class="feature-tag">VALIDATION</div>
                     <div class="feature-title">Pass / fail criteria</div>
                     <p class="feature-body">Set per-point expected voltage ranges and protocols; every point scores PASS, FAIL, or WARN automatically.</p>
@@ -250,31 +266,31 @@
 
             <div class="shots">
                 <div class="shot">
-                    <img src="assets/board.png" alt="Board view with probe points">
+                    <img src="assets/board.png" alt="Board view with probe points and the filterable point list">
                     <div class="shot-caption">
                         <div class="label">BOARD VIEW</div>
-                        <div class="desc">Place probe points and review overlays after each scan.</div>
+                        <div class="desc">Place probe points and filter the list by signal, voltage, protocol, or status.</div>
                     </div>
                 </div>
                 <div class="shot">
-                    <img src="assets/scan.png" alt="Scan configuration">
+                    <img src="assets/scan.png" alt="Scan configuration with plugin and hook selection">
                     <div class="shot-caption">
                         <div class="label">SCAN MODE</div>
-                        <div class="desc">Configure plugins, hooks, timing, and live session status.</div>
+                        <div class="desc">Pick plugins and hooks, set timing, save templates, and run with live status.</div>
                     </div>
                 </div>
                 <div class="shot">
-                    <img src="assets/analyze.png" alt="Analysis view">
+                    <img src="assets/settings.png" alt="Instrument settings with auto-discovery and environment check">
                     <div class="shot-caption">
-                        <div class="label">ANALYZE</div>
-                        <div class="desc">Browse captures, waveforms, and protocol analysis by point.</div>
+                        <div class="label">SETTINGS</div>
+                        <div class="desc">Tabbed instrument config with VISA auto-discovery and an environment check.</div>
                     </div>
                 </div>
                 <div class="shot">
-                    <img src="assets/reports.png" alt="Generated report">
+                    <img src="assets/project.png" alt="Project management with netlist import and project export">
                     <div class="shot-caption">
-                        <div class="label">REPORTS</div>
-                        <div class="desc">Summaries, per-point detail, and exportable findings.</div>
+                        <div class="label">PROJECT</div>
+                        <div class="desc">Rename images, import a netlist, and export or import whole projects as ZIP.</div>
                     </div>
                 </div>
             </div>
@@ -433,6 +449,39 @@ class LogHook(ScanHook):
         </div>
     </section>
 
+    <section id="docs">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Documentation</div>
+                <h2 class="section-title">Full technical docs, in one file</h2>
+                <p class="section-subtitle">Auto-generated from the codebase so it stays accurate — and downloadable for offline review.</p>
+            </div>
+
+            <div class="docs-panel">
+                <div class="docs-info">
+                    <div class="example-tag">DOWNLOADABLE REPORT</div>
+                    <h3 class="report-title">Omnisonde Technical Documentation</h3>
+                    <p class="report-body">A single self-contained HTML report — workflow guide, architecture, the plugin / hook / analysis catalog, the complete REST API, the configuration reference, and the database schema, with embedded screenshots and a table of contents.</p>
+                    <div class="docs-buttons">
+                        <a class="btn btn-primary" href="docs/omnisonde-documentation.html" target="_blank" rel="noreferrer">Open HTML report</a>
+                        <a class="btn" href="docs/omnisonde-documentation.html" download>Download HTML</a>
+                        <a class="btn" href="docs/omnisonde-documentation.md" download>Markdown source</a>
+                    </div>
+                </div>
+                <ul class="docs-contents">
+                    <li>Introduction &amp; getting started</li>
+                    <li>Step-by-step workflow guide</li>
+                    <li>Architecture &amp; module map</li>
+                    <li>Instrument plugins, hooks &amp; analyzers</li>
+                    <li>Protocol decoding &amp; netlist cross-reference</li>
+                    <li>Configuration reference</li>
+                    <li>Complete REST API reference</li>
+                    <li>Database schema</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section id="future">
         <div class="container">
             <div class="section-header">
@@ -443,7 +492,7 @@ class LogHook(ScanHook):
 
             <div class="future-grid">
                 <div class="future-card">Automated probing and deeper motion control integration</div>
-                <div class="future-card">More protocol decoders — SPI, I²C, and CAN bus identification</div>
+                <div class="future-card">Headless, CI-driven scans for automated hardware regression</div>
                 <div class="future-card">Fault injection and power event orchestration</div>
                 <div class="future-card">More synchronized instrumentation on one shared timeline</div>
                 <div class="future-card">Collaborative workflows for lab teams and review cycles</div>

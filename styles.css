@@ -668,6 +668,55 @@ section {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* ---------- Documentation ---------- */
+.docs-panel {
+    display: grid;
+    grid-template-columns: 1.4fr 0.6fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    background: var(--bg-panel);
+    border: 1px solid var(--border-soft);
+    padding: var(--space-2xl);
+}
+
+.docs-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.docs-contents {
+    list-style: none;
+    display: grid;
+    gap: var(--space-sm);
+    padding-left: 0;
+}
+
+.docs-contents li {
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    letter-spacing: 0.02em;
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.docs-contents li::before {
+    content: "›";
+    color: var(--brass);
+    position: absolute;
+    left: 0;
+}
+
+@media (max-width: 900px) {
+    .docs-panel {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+        padding: var(--space-lg);
+    }
+}
+
 /* ---------- Future ---------- */
 .future-grid {
     display: grid;
